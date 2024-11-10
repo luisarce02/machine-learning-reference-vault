@@ -6,7 +6,7 @@ La *función de costo* en machine learning es una métrica que indica qué tan b
 
 - Dada la función lineal:
 \[
-f{w}, b}(x) = w \cdot x + b
+f{w, b}(x) = w \cdot x + b
 \]
 Donde:
 - $w$ y $b$ son los *parámetros* o *coeficientes* del modelo que se ajustan durante el entrenamiento.
