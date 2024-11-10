@@ -1,7 +1,5 @@
 = Machine Learning Handbook: La Función de Costo en Regresión Lineal
 
-
-
 La Función de Costo en la Regresión Lineal
 Una parte fundamental de la implementación de la regresión lineal es definir la función de costo, la cual permite evaluar la calidad del modelo. En este tema, explicaremos qué es la función de costo y cómo se utiliza para mejorar el modelo.
 

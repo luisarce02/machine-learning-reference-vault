@@ -1,4 +1,3 @@
-
 == Machine Learning Handbook: Implementación del Algoritmo de Descenso de Gradiente
 
 Introducción
@@ -79,4 +78,3 @@ Implementar el descenso de gradiente de forma correcta implica:
 - Usar una tasa de aprendizaje adecuada.
 - Calcular y almacenar temporalmente los valores de actualización de \(w\) y \(b\).
 - Actualizar ambos parámetros simultáneamente.
-  
