@@ -1,6 +1,6 @@
-Handbook de Machine Learning: Función de Costo en Regresión Lineal
+== Handbook de Machine Learning: Función de Costo en Regresión Lineal
 
-1. Introducción a la Función de Costo
+1. *Introducción a la Función de Costo*
 
 La *función de costo* en machine learning es una métrica que indica qué tan bien un modelo predice el valor de salida deseado. En el caso de *regresión lineal*, el objetivo es encontrar los parámetros óptimos de la función lineal para minimizar la diferencia entre las predicciones y los valores reales en el conjunto de entrenamiento.
 
@@ -13,7 +13,7 @@ Donde:
 - $x$ representa las *características de entrada*.
 - $f_{w, b}(x)$ es la *predicción* de la salida.
 
-Ejemplos de $f(x)$ con diferentes valores de $w$ y $b$
+*Ejemplos de $f(x)$ con diferentes valores de $w$ y $b$*
 
 1. *Caso 1*: $w = 0$, $b = 1.5$
 - La función $f(x) = 0 \cdot x + 1.5 = 1.5$ produce una *línea horizontal* a $y = 1.5$.
@@ -24,11 +24,11 @@ Ejemplos de $f(x)$ con diferentes valores de $w$ y $b$
 3. *Caso 3*: $w = 0.5$, $b = 1$
 - La función $f(x) = 0.5 \cdot x + 1$ cruza el eje $y$ en $1$ y tiene una pendiente de $0.5$.
 
-2. Definición de la Función de Costo
+2. *Definición de la Función de Costo*
 
 Para elegir los valores óptimos de $w$ y $b$, se necesita una métrica que evalúe el error de predicción en todos los ejemplos de entrenamiento. Esta métrica es la *función de costo*.
 
-Error Cuadrático
+*Error Cuadrático*
 
 Para un ejemplo de entrenamiento $i$, el error se define como la diferencia entre la predicción y el valor objetivo:
 
@@ -40,7 +40,7 @@ Donde:
 - $\hat{y}$ es la predicción de la salida para una entrada $x$ dada.
 - $y$ es el valor objetivo real.
 
-Error Cuadrático Medio (MSE)
+*Error Cuadrático Medio (MSE)*
 
 La función de costo total calcula el error cuadrático medio en todo el conjunto de entrenamiento:
 
@@ -52,12 +52,12 @@ Donde:
 - $m$ es el número total de ejemplos en el conjunto de entrenamiento.
 - La división por $2$ es una convención que simplifica cálculos posteriores.
 
-3. Interpretación de la Función de Costo
+3. *Interpretación de la Función de Costo*
 
 - Si $J(w, b)$ es *grande*, la predicción promedio está lejos de los valores reales; el modelo no se ajusta bien a los datos.
 - Si $J(w, b)$ es *pequeño*, la predicción promedio está cerca de los valores reales; el modelo se ajusta bien a los datos.
 
-4. Ejemplo de Cálculo de la Función de Costo
+4. *Ejemplo de Cálculo de la Función de Costo*
 
 Supongamos un conjunto de entrenamiento con $m = 47$ ejemplos. La función de costo calcularía el error cuadrático para cada ejemplo, sumaría estos errores y los dividiría por $2m$.
 
@@ -67,11 +67,11 @@ Supongamos un conjunto de entrenamiento con $m = 47$ ejemplos. La función de co
 
 Esta función de costo ayuda a determinar qué tan bien se ajusta la línea del modelo a los datos de entrenamiento.
 
-5. Aplicación en Machine Learning
+5. *Aplicación en Machine Learning*
 
 La función de costo es una herramienta central en el entrenamiento de modelos de regresión lineal y otros modelos de machine learning. Reducir el valor de $J(w, b)$ mediante el ajuste de $w$ y $b$ es el objetivo principal en el entrenamiento del modelo.
 
-Resumen
+*Resumen*
 
 - La *función de costo* mide la precisión del modelo.
 - En *regresión lineal*, $J(w, b)$ mide el error cuadrático medio de las predicciones.
