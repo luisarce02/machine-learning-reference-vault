@@ -1,10 +1,11 @@
 = Machine Learning Handbook: La Función de Costo en Regresión Lineal
 
 La Función de Costo en la Regresión Lineal
+
 Una parte fundamental de la implementación de la regresión lineal es definir la función de costo, la cual permite evaluar la calidad del modelo. En este tema, explicaremos qué es la función de costo y cómo se utiliza para mejorar el modelo.
 
 1. Introducción
-Para entrenar un modelo de regresión lineal, trabajamos con un conjunto de datos de entrenamiento que contiene pares de entrada `(x)` y salida `(y)`. El modelo utilizado para ajustar estos datos es la función lineal \( f{w, b}(x) = w \cdot x + b \), donde:
+Para entrenar un modelo de regresión lineal, trabajamos con un conjunto de datos de entrenamiento que contiene pares de entrada `(x)` y salida `(y)`. El modelo utilizado para ajustar estos datos es la función lineal \( f_{w, b}(x) = w \cdot x + b \), donde:
 
 - *w* y *b* son los parámetros del modelo.
 - *w* es conocido como el peso o pendiente.
@@ -40,7 +41,7 @@ La función de costo mide qué tan cerca están las predicciones del modelo de l
 
 Para una entrada dada \( x^{(i)} \), la predicción del modelo es:
 \[
-\hat{y}^{(i)} = f{w, b}(x^{(i)}) = w \cdot x^{(i)} + b
+\hat{y}^{(i)} = f_{w, b}(x^{(i)}) = w \cdot x^{(i)} + b
 \]
 
 La función de costo, conocida como *error cuadrático medio (MSE)*, se define como:
@@ -59,13 +60,13 @@ Cuando *J(w, b)* es pequeño, significa que la línea generada por \( f(x) \) se
 5. Ejemplo Visual con Función Simplificada
 
 Caso Simplificado
-Consideremos un modelo simplificado donde \( f{w}(x) = w \cdot x \) (es decir, *b = 0*).
+Consideremos un modelo simplificado donde \( f_{w}(x) = w \cdot x \) (es decir, *b = 0*).
 
 Para un conjunto de entrenamiento con puntos en las posiciones *(1,1), (2,2), (3,3)*, se puede observar cómo varía el error cuadrático medio al cambiar el valor de *w*:
 
 1. Para \( w = 1 \):
 - La línea de predicción coincide con todos los puntos de datos, lo cual genera un error *J(w) = 0*.
-   
+
 2. Para \( w = 0.5 \):
 - La línea de predicción se aleja de los puntos, aumentando el error cuadrático.
 
@@ -74,7 +75,7 @@ Al visualizar *J(w)* en función de *w*, se observa que el valor mínimo de *J* 
 6. Minimización de la Función de Costo
 El objetivo en regresión lineal es encontrar los valores de *w* y *b* que minimicen \( J(w, b) \), es decir, que minimicen el error entre las predicciones y los valores reales. Matemáticamente, esto se expresa como:
 \[
-\min{w, b} J(w, b)
+\min_{w, b} J(w, b)
 \]
 
 Para encontrar los mejores parámetros, se utilizan algoritmos de optimización, como el descenso de gradiente, que permite ajustar iterativamente *w* y *b* hasta que \( J(w, b) \) alcance un valor mínimo.

@@ -5,22 +5,22 @@ Handbook de Machine Learning: Función de Costo en Regresión Lineal
 La *función de costo* en machine learning es una métrica que indica qué tan bien un modelo predice el valor de salida deseado. En el caso de *regresión lineal*, el objetivo es encontrar los parámetros óptimos de la función lineal para minimizar la diferencia entre las predicciones y los valores reales en el conjunto de entrenamiento.
 
 - Dada la función lineal:
-$f_{w, b}(x) = w \cdot x + b$
-Donde:
-- $w$ y $b$ son los *parámetros* o *coeficientes* del modelo que se ajustan durante el entrenamiento.
-- $x$ representa las *características de entrada*.
-- $f_{w, b}(x)$ es la *predicción* de la salida.
+  $$f_{w, b}(x) = w \cdot x + b$$
+  Donde:
+  - $w$ y $b$ son los *parámetros* o *coeficientes* del modelo que se ajustan durante el entrenamiento.
+  - $x$ representa las *características de entrada*.
+  - $f_{w, b}(x)$ es la *predicción* de la salida.
 
-Ejemplos de $f(x)$ con diferentes valores de $w$ y $b$
+Ejemplos de $f(x)$ con diferentes valores de $w$ y $b$:
 
 1. *Caso 1*: $w = 0$, $b = 1.5$
-- La función $f(x) = 0 \cdot x + 1.5 = 1.5$ produce una *línea horizontal* a $y = 1.5$.
-   
+   - La función $f(x) = 0 \cdot x + 1.5 = 1.5$ produce una *línea horizontal* a $y = 1.5$.
+
 2. *Caso 2*: $w = 0.5$, $b = 0$
-- La función $f(x) = 0.5 \cdot x$ tiene una *pendiente* de $0.5$ y *pasa por el origen*.
-   
+   - La función $f(x) = 0.5 \cdot x$ tiene una *pendiente* de $0.5$ y *pasa por el origen*.
+
 3. *Caso 3*: $w = 0.5$, $b = 1$
-- La función $f(x) = 0.5 \cdot x + 1$ cruza el eje y en $1$ y tiene una pendiente de $0.5$.
+   - La función $f(x) = 0.5 \cdot x + 1$ cruza el eje y en $1$ y tiene una pendiente de $0.5$.
 
 2. Definición de la Función de Costo
 
@@ -30,21 +30,21 @@ Error Cuadrático
 
 Para un ejemplo de entrenamiento $i$, el error se define como la diferencia entre la predicción y el valor objetivo:
 
-\[
-\text{error} = \u{005E}{y} - y
-\]
+$$
+\text{error} = \hat{y} - y
+$$
 
 Donde:
-- $\u{005E}{y}$ es la predicción de la salida para una entrada $x$ dada.
+- $\hat{y}$ es la predicción de la salida para una entrada $x$ dada.
 - $y$ es el valor objetivo real.
 
 Error Cuadrático Medio (MSE)
 
 La función de costo total calcula el error cuadrático medio en todo el conjunto de entrenamiento:
 
-\[
+$$
 J(w, b) = \frac{1}{2m} \sum_{i=1}^m \left( f_{w, b}(x^{(i)}) - y^{(i)} \right)^2
-\]
+$$
 
 Donde:
 - $m$ es el número total de ejemplos en el conjunto de entrenamiento.
@@ -59,7 +59,7 @@ Donde:
 
 Supongamos un conjunto de entrenamiento con $m = 47$ ejemplos. La función de costo calcularía el error cuadrático para cada ejemplo, sumaría estos errores y los dividiría por $2m$.
 
-1. *Cálculo del Error Cuadrático*: Para un ejemplo específico $i$, se calcula $({\u{005E}y}^{(i)} - y^{(i)})^2$.
+1. *Cálculo del Error Cuadrático*: Para un ejemplo específico $i$, se calcula $(\hat{y}^{(i)} - y^{(i)})^2$.
 2. *Suma de Errores*: Se suman los errores cuadráticos de todos los ejemplos.
 3. *Promedio del Error Cuadrático*: Se divide el total de errores entre $2m$ para obtener el error cuadrático medio.
 
