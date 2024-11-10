@@ -64,10 +64,10 @@ Consideremos un modelo simplificado donde \( f{w}(x) = w \cdot x \) (es decir, *
 Para un conjunto de entrenamiento con puntos en las posiciones *(1,1), (2,2), (3,3)*, se puede observar cómo varía el error cuadrático medio al cambiar el valor de *w*:
 
 1. Para \( w = 1 \):
-   - La línea de predicción coincide con todos los puntos de datos, lo cual genera un error *J(w) = 0*.
+- La línea de predicción coincide con todos los puntos de datos, lo cual genera un error *J(w) = 0*.
    
 2. Para \( w = 0.5 \):
-   - La línea de predicción se aleja de los puntos, aumentando el error cuadrático.
+- La línea de predicción se aleja de los puntos, aumentando el error cuadrático.
 
 Al visualizar *J(w)* en función de *w*, se observa que el valor mínimo de *J* ocurre cuando \( w = 1 \).
 

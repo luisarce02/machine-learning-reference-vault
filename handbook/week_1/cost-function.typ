@@ -5,23 +5,22 @@ Handbook de Machine Learning: Función de Costo en Regresión Lineal
 La *función de costo* en machine learning es una métrica que indica qué tan bien un modelo predice el valor de salida deseado. En el caso de *regresión lineal*, el objetivo es encontrar los parámetros óptimos de la función lineal para minimizar la diferencia entre las predicciones y los valores reales en el conjunto de entrenamiento.
 
 - Dada la función lineal:
-  $f_{w, b}(x) = w \cdot x + b$
-
-  Donde:
-  - $w$ y $b$ son los *parámetros* o *coeficientes* del modelo que se ajustan durante el entrenamiento.
-  - $x$ representa las *características de entrada*.
-  - $f_{w, b}(x)$ es la *predicción* de la salida.
+$f_{w, b}(x) = w \cdot x + b$
+Donde:
+- $w$ y $b$ son los *parámetros* o *coeficientes* del modelo que se ajustan durante el entrenamiento.
+- $x$ representa las *características de entrada*.
+- $f_{w, b}(x)$ es la *predicción* de la salida.
 
 Ejemplos de $f(x)$ con diferentes valores de $w$ y $b$
 
 1. *Caso 1*: $w = 0$, $b = 1.5$
-   - La función $f(x) = 0 \cdot x + 1.5 = 1.5$ produce una *línea horizontal* a $y = 1.5$.
+- La función $f(x) = 0 \cdot x + 1.5 = 1.5$ produce una *línea horizontal* a $y = 1.5$.
    
 2. *Caso 2*: $w = 0.5$, $b = 0$
-   - La función $f(x) = 0.5 \cdot x$ tiene una *pendiente* de $0.5$ y *pasa por el origen*.
+- La función $f(x) = 0.5 \cdot x$ tiene una *pendiente* de $0.5$ y *pasa por el origen*.
    
 3. *Caso 3*: $w = 0.5$, $b = 1$
-   - La función $f(x) = 0.5 \cdot x + 1$ cruza el eje y en $1$ y tiene una pendiente de $0.5$.
+- La función $f(x) = 0.5 \cdot x + 1$ cruza el eje y en $1$ y tiene una pendiente de $0.5$.
 
 2. Definición de la Función de Costo
 

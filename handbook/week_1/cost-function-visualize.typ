@@ -9,41 +9,37 @@ La función de costo \( J(w, b) \) mide el error cuadrático promedio entre las 
 Visualización de la Función de Coste en 2D y 3D
 
 1. *Visualización en 2D (solo \( w \))*
-   En una primera aproximación, al fijar \( b = 0 \), la función de costo se visualiza en 2D. En este caso, la gráfica de \( J(w) \) tiene la forma de una parábola o un "cuenco" orientado hacia arriba, indicando que el mínimo de la función está en el fondo de la curva.
-
-   - *Ejemplo:* Si \( w = 0.06 \) y \( b = 50 \), la función \( f(x) = 0.06x + 50 \) se muestra en una gráfica como una línea que no ajusta bien el conjunto de datos sobre precios de viviendas. En este caso, \( J(w, b) \) será alto debido a la alta diferencia entre las predicciones y los valores reales.
+En una primera aproximación, al fijar \( b = 0 \), la función de costo se visualiza en 2D. En este caso, la gráfica de \( J(w) \) tiene la forma de una parábola o un "cuenco" orientado hacia arriba, indicando que el mínimo de la función está en el fondo de la curva.
+- *Ejemplo:* Si \( w = 0.06 \) y \( b = 50 \), la función \( f(x) = 0.06x + 50 \) se muestra en una gráfica como una línea que no ajusta bien el conjunto de datos sobre precios de viviendas. En este caso, \( J(w, b) \) será alto debido a la alta diferencia entre las predicciones y los valores reales.
 
 2. *Visualización en 3D (con \( w \) y \( b \))*
-   Cuando consideramos \( w \) y \( b \) como parámetros, la función de costo \( J(w, b) \) toma una forma en 3D, generando un gráfico de superficie similar a un "cuenco" extendido en tres dimensiones. En este gráfico, el eje vertical representa el valor de \( J(w, b) \), mientras que los ejes horizontales representan los valores de \( w \) y \( b \).
-
-   - *Ejemplo Visual 3D:* Si \( w = -0.15 \) y \( b = 800 \), \( f(x) = -0.15 \cdot x + 800 \) produce una línea con pendiente negativa, lo cual no ajusta bien el conjunto de datos de precios de viviendas. Este punto se representa en la superficie 3D lejos del fondo, indicando un alto costo.
-   
-   - *Gráfico 3D:* La gráfica de superficie muestra que los valores altos de \( J(w, b) \) están alejados del mínimo en el centro del cuenco.
+Cuando consideramos \( w \) y \( b \) como parámetros, la función de costo \( J(w, b) \) toma una forma en 3D, generando un gráfico de superficie similar a un "cuenco" extendido en tres dimensiones. En este gráfico, el eje vertical representa el valor de \( J(w, b) \), mientras que los ejes horizontales representan los valores de \( w \) y \( b \).
+- *Ejemplo Visual 3D:* Si \( w = -0.15 \) y \( b = 800 \), \( f(x) = -0.15 \cdot x + 800 \) produce una línea con pendiente negativa, lo cual no ajusta bien el conjunto de datos de precios de viviendas. Este punto se representa en la superficie 3D lejos del fondo, indicando un alto costo.   
+- *Gráfico 3D:* La gráfica de superficie muestra que los valores altos de \( J(w, b) \) están alejados del mínimo en el centro del cuenco.
 
 3. *Gráfica de Contornos (Mapa Topográfico de la Función de Coste)*
-   La gráfica de contornos es una proyección 2D del gráfico de superficie 3D. En esta gráfica, los óvalos o elipses representan cortes horizontales del cuenco, donde cada curva conecta puntos de igual valor de \( J(w, b) \). El centro de las elipses indica el mínimo de la función de coste.
-
-   - *Ejemplo de Interpretación de Contornos:* 
-     - Puntos en contornos exteriores representan valores altos de \( J(w, b) \) y, por ende, modelos con alta ineficacia en las predicciones.
-     - El centro de las elipses corresponde al valor mínimo de \( J(w, b) \), que representa el mejor ajuste de los datos.
+La gráfica de contornos es una proyección 2D del gráfico de superficie 3D. En esta gráfica, los óvalos o elipses representan cortes horizontales del cuenco, donde cada curva conecta puntos de igual valor de \( J(w, b) \). El centro de las elipses indica el mínimo de la función de coste.
+- *Ejemplo de Interpretación de Contornos:* 
+- Puntos en contornos exteriores representan valores altos de \( J(w, b) \) y, por ende, modelos con alta ineficacia en las predicciones.
+- El centro de las elipses corresponde al valor mínimo de \( J(w, b) \), que representa el mejor ajuste de los datos.
 
 Ejemplos de Parámetros y Ajuste de Modelo
 
 Se exploran diferentes valores de \( w \) y \( b \) para observar cómo afectan el ajuste de la línea \( f(x) \) al conjunto de datos de precios de viviendas:
 
 1. *\( w = -0.15, b = 800 \)*:
-   - *Función:* \( f(x) = -0.15 \cdot x + 800 \)
-   - *Visualización:* La línea cruza el eje vertical en 800 y tiene una pendiente negativa.
-   - *Costo:* Alto, debido a que la línea no se ajusta bien a los datos.
+- *Función:* \( f(x) = -0.15 \cdot x + 800 \)
+- *Visualización:* La línea cruza el eje vertical en 800 y tiene una pendiente negativa.
+- *Costo:* Alto, debido a que la línea no se ajusta bien a los datos.
 
 2. *\( w = 0, b = 360 \)*:
-   - *Función:* \( f(x) = 0 \cdot x + 360 \) (línea plana).
-   - *Visualización:* La línea es horizontal y corta el eje vertical en 360.
-   - *Costo:* Aún alto, aunque menor en comparación con el ejemplo anterior.
+- *Función:* \( f(x) = 0 \cdot x + 360 \) (línea plana).
+- *Visualización:* La línea es horizontal y corta el eje vertical en 360.
+- *Costo:* Aún alto, aunque menor en comparación con el ejemplo anterior.
 
 3. *Valores cercanos al mínimo de \( J(w, b) \)*:
-   - *Función:* Se obtiene una línea de mejor ajuste para el conjunto de datos, con el costo mínimo posible.
-   - *Visualización:* La línea pasa cerca de los puntos de datos, minimizando la distancia vertical entre las predicciones y los valores reales.
+- *Función:* Se obtiene una línea de mejor ajuste para el conjunto de datos, con el costo mínimo posible.
+- *Visualización:* La línea pasa cerca de los puntos de datos, minimizando la distancia vertical entre las predicciones y los valores reales.
 
 Algoritmo de Optimización: Descenso de Gradiente
 
