@@ -78,6 +78,4 @@ Resumen
 - En *regresión lineal*, $J(w, b)$ mide el error cuadrático medio de las predicciones.
 - Optimizar los valores de $w$ y $b$ para *minimizar $J(w, b)$* ayuda a mejorar el rendimiento del modelo en la tarea de predicción.
 
-Para comprender la función de costo más a fondo, revisa cómo cambiar $w$ y $b$ afecta la forma de la línea y el valor de $J(w, b)$ en tus datos de entrenamiento.
-
-¡Esto concluye la sección de la función de costo en regresión lineal!
+Para comprender la función de costo más a fondo, revisar cómo cambiar $w$ y $b$ afecta la forma de la línea y el valor de $J(w, b)$ en tus datos de entrenamiento.

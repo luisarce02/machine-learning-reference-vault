@@ -64,4 +64,3 @@ En el laboratorio interactivo, puedes visualizar cómo diferentes configuracione
 2. *Superficie 3D Giratoria:* Explora la superficie 3D de \( J(w, b) \) y observa cómo se mueve el punto de menor costo con diferentes valores de los parámetros.
 
 Estas herramientas permiten una comprensión visual y práctica de la función de costo y su minimización.
-
