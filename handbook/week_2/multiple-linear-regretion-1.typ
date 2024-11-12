@@ -38,7 +38,7 @@ With multiple features, the linear regression model is expressed as:
 
 Consider a model to predict housing prices:
 
-- Model formula: 
+- Model formula:
   $ f(w, b)(X) = 0.1 X_1 + 4 X_2 + 10 X_3 - 2 X_4 + 80 $
 
 Interpretations of parameters:
