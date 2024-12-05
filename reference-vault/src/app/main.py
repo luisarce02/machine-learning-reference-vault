@@ -1,13 +1,9 @@
-from capstone.mpg_regression import MpgRegressionCapstone
-from capstone.tumor_classification import TumorClassificationCapstone
+from capstone.mpg_regression_library import main as mpglib
+from capstone.tumor_classification_library import TumorClassificationCapstone
 
 
 def main() -> None:
-    mpg_capstone = MpgRegressionCapstone()
-    mpg_capstone.run()
-
-    tumor_capstone = TumorClassificationCapstone()
-    tumor_capstone.run()
+    mpglib()
 
 
 if __name__ == "__main__":
