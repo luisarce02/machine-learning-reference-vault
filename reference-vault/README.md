@@ -18,7 +18,7 @@ $ pip install -e .
 $ black .
 All done! ✨ 🍰 ✨
 X files left unchanged.
-$ mypy .
+$ mypy --ignore-missing-imports .
 Success: no issues found in X source files
 ```
 

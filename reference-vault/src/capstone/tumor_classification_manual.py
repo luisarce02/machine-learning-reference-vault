@@ -2,14 +2,21 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
+
 
 def compute_cost(X, y, weights):
     m = len(y)
     predictions = sigmoid(np.dot(X, weights))
-    cost = -1/m * (np.dot(y, np.log(predictions)) + np.dot((1 - y), np.log(1 - predictions)))
+    cost = (
+        -1
+        / m
+        * (np.dot(y, np.log(predictions)) + np.dot((1 - y), np.log(1 - predictions)))
+    )
     return cost
+
 
 def gradient_descent(X, y, weights, learning_rate, iterations):
     """Optimize weights using gradient descent."""
@@ -29,28 +36,33 @@ def gradient_descent(X, y, weights, learning_rate, iterations):
 
     return weights, cost_history
 
+
 def predict(X, weights):
     """Binary predictions from probabilities."""
     probabilities = sigmoid(np.dot(X, weights))
     return [1 if prob >= 0.5 else 0 for prob in probabilities]
 
+
 def plot_cost_convergence(cost_history, iterations):
     plt.figure(figsize=(8, 5))
-    plt.plot(range(iterations), cost_history, color='blue')
-    plt.title('Convergencia del Costo')
-    plt.xlabel('Iteraciones')
-    plt.ylabel('Costo')
-    plt.savefig('plot/tumor_cost_convergence_manual.png')
-    print("Gráfico de convergencia del costo guardado como 'tumor_cost_convergence_manual.png'.")
+    plt.plot(range(iterations), cost_history, color="blue")
+    plt.title("Convergencia del Costo")
+    plt.xlabel("Iteraciones")
+    plt.ylabel("Costo")
+    plt.savefig("plot/tumor_cost_convergence_manual.png")
+    print(
+        "Gráfico de convergencia del costo guardado como 'tumor_cost_convergence_manual.png'."
+    )
+
 
 def plot_results(y_test, predictions):
     """Graphing the results comparing predictions against actual values."""
     print("Graficando resultados de clasificación...")
     plt.figure(figsize=(10, 6))
-    
+
     # Index for data
     indices = np.arange(len(y_test))
-    
+
     # Sort index by actual labels
     sorted_indices = np.argsort(y_test)
 
@@ -58,24 +70,32 @@ def plot_results(y_test, predictions):
     y_test_sorted = y_test[sorted_indices]
     predictions_sorted = np.array(predictions)[sorted_indices]
 
-    plt.scatter(indices, y_test_sorted, color='blue', label='Real', alpha=0.6)
-    plt.scatter(indices, predictions_sorted, color='red', marker='x', label='Predicción', alpha=0.6)
+    plt.scatter(indices, y_test_sorted, color="blue", label="Real", alpha=0.6)
+    plt.scatter(
+        indices,
+        predictions_sorted,
+        color="red",
+        marker="x",
+        label="Predicción",
+        alpha=0.6,
+    )
 
-    plt.title('Resultados de Clasificación')
-    plt.xlabel('Índice de Muestra Ordenada')
-    plt.ylabel('Etiqueta')
+    plt.title("Resultados de Clasificación")
+    plt.xlabel("Índice de Muestra Ordenada")
+    plt.ylabel("Etiqueta")
     plt.legend()
     plt.savefig("plot/tumor_classification_results_manual.png")
     print("Resultados guardados como 'tumor_classification_results_manual.png'.")
 
+
 def load_and_prepare_data(file_path):
     print("Cargando y procesando datos...")
     data = pd.read_csv(file_path)
-    data.drop(['id', 'Unnamed: 32'], axis=1, inplace=True)
-    data['diagnosis'] = data['diagnosis'].map({'M': 1, 'B': 0})
+    data.drop(["id", "Unnamed: 32"], axis=1, inplace=True)
+    data["diagnosis"] = data["diagnosis"].map({"M": 1, "B": 0})
 
-    features = data.drop('diagnosis', axis=1).values
-    target = data['diagnosis'].values
+    features = data.drop("diagnosis", axis=1).values
+    target = data["diagnosis"].values
 
     # Normalize features
     features = (features - np.mean(features, axis=0)) / np.std(features, axis=0)
@@ -86,6 +106,7 @@ def load_and_prepare_data(file_path):
     print("Datos preparados.")
     return features, target
 
+
 def split_data(features, target, train_ratio=0.7):
     print("Dividiendo datos en entrenamiento y prueba...")
     train_size = int(train_ratio * len(features))
@@ -93,6 +114,7 @@ def split_data(features, target, train_ratio=0.7):
     y_train, y_test = target[:train_size], target[train_size:]
     print("Datos divididos.")
     return X_train, X_test, y_train, y_test
+
 
 def pipeline(file_path):
     features, target = load_and_prepare_data(file_path)
@@ -105,7 +127,9 @@ def pipeline(file_path):
     # Train model
     learning_rate = 0.01
     iterations = 1000
-    weights, cost_history = gradient_descent(X_train, y_train, weights, learning_rate, iterations)
+    weights, cost_history = gradient_descent(
+        X_train, y_train, weights, learning_rate, iterations
+    )
 
     plot_cost_convergence(cost_history, iterations)
 
@@ -116,4 +140,5 @@ def pipeline(file_path):
 
     plot_results(y_test, predictions)
 
-pipeline('data/breast_cancer.csv')
+
+pipeline("data/breast_cancer.csv")
