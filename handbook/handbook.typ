@@ -187,30 +187,6 @@ El algoritmo de descenso de gradiente requiere que los parámetros \(w\) y \(b\)
 1. Calculamos las expresiones para los nuevos valores de \(w\) y \(b\), almacenándolos temporalmente.
 2. Actualizamos ambos parámetros al mismo tiempo utilizando los valores temporales.
 
-En código, esto se vería como:
-
-```python
-temp_w = w - alpha * (d/dw) J(w, b)
-temp_b = b - alpha * (d/db) J(w, b)
-
-w = temp_w
-b = temp_b
-```
-
-Esta actualización simultánea garantiza que ambos parámetros se ajusten según los valores previos de \(w\) y \(b\).
-
-Ejemplo de Implementación Incorrecta
-
-Una implementación incorrecta del descenso de gradiente actualiza \(w\) antes de calcular el nuevo valor de \(b\):
-
-```python
-temp_w = w - alpha * (d/dw) J(w, b)
-w = temp_w
-
-temp_b = b - alpha * (d/db) J(w, b)
-b = temp_b
-```
-
 En este caso, el valor de \(w\) utilizado para actualizar \(b\) es diferente al valor inicial, lo cual altera el resultado y la precisión del algoritmo. Esta variante no es un verdadero descenso de gradiente, sino un método con propiedades diferentes.
 
 Convergencia del Algoritmo
@@ -267,7 +243,7 @@ La función de costo mide qué tan cerca están las predicciones del modelo de l
 
 Para una entrada dada \( x^{(i)} \), la predicción del modelo es:
 \[
-\hat{y}^{(i)} = f_{w, b}(x^{(i)}) = w \cdot x^{(i)} + b
+$$\hat{y}^{(i)} = f_{w, b}(x^{(i)}) = w \cdot x^{(i)} + b$$
 \]
 
 La función de costo, conocida como *error cuadrático medio (MSE)*, se define como:
@@ -301,7 +277,7 @@ Al visualizar *J(w)* en función de *w*, se observa que el valor mínimo de *J* 
 6. Minimización de la Función de Costo
 El objetivo en regresión lineal es encontrar los valores de *w* y *b* que minimicen \( J(w, b) \), es decir, que minimicen el error entre las predicciones y los valores reales. Matemáticamente, esto se expresa como:
 \[
-\min_{w, b} J(w, b)
+$$\min_{w, b} J(w, b)$$
 \]
 
 Para encontrar los mejores parámetros, se utilizan algoritmos de optimización, como el descenso de gradiente, que permite ajustar iterativamente *w* y *b* hasta que \( J(w, b) \) alcance un valor mínimo.
@@ -448,8 +424,6 @@ Resumen
 
 Para comprender la función de costo más a fondo, revisar cómo cambiar $w$ y $b$ afecta la forma de la línea y el valor de $J(w, b)$ en tus datos de entrenamiento.
 
-
-```typst
 = Handbook: Machine Learning - Gradiente Descendente para Regresión Lineal
 
 # Introducción
@@ -475,19 +449,6 @@ El objetivo del descenso de gradiente es minimizar la función de coste actualiz
 
 Usando estas derivadas, el algoritmo actualiza los valores de w y b en cada paso para minimizar J.
 
-# Implementación del Gradiente Descendente
-Para implementar el gradiente descendente en regresión lineal, seguimos estos pasos:
-
-- **Inicialización**: Asignamos valores iniciales a w y b (e.g., w = -0.1 y b = 900).
-- **Actualización**: En cada paso, calculamos las derivadas y actualizamos w y b:
-
-  ```
-  w := w - α * ∂J/∂w
-  b := b - α * ∂J/∂b
-  ```
-
-  donde α es la tasa de aprendizaje.
-
 - **Convergencia**: Repetimos las actualizaciones hasta que el cambio en J sea mínimo o hasta alcanzar un número máximo de iteraciones.
 
 # Propiedades del Gradiente Descendente en Regresión Lineal
@@ -512,8 +473,6 @@ Repasa el algoritmo de descenso de gradiente y experimenta con diferentes tasas 
 - **Función de coste**: Cuantifica el error.
 - **Gradiente Descendente**: Algoritmo de optimización para minimizar la función de coste.
 - **Aplicación Práctica**: Predicción de valores como precios de viviendas.
-
-```
 
 == Handbook: Machine Learning - Elección del Learning Rate y Funcionamiento del Gradient Descent
 
@@ -828,10 +787,6 @@ Resumen
 - La fórmula del modelo de regresión lineal es \(f(x) = w \cdot x + b\).
 - La diferencia entre *regresión* y *clasificación* es que la regresión predice valores continuos, mientras que la clasificación predice categorías discretas.
 
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
-
 = Feature Scaling
 
 == Feature Engineering and its Importance
@@ -888,10 +843,6 @@ This process of creating new features is called *feature engineering*. By transf
 Feature engineering is not limited to linear models. By creating new features or applying non-linear transformations, we can allow models to fit curves or other complex relationships in the data.
 
 *Note for the next lesson*: The subsequent video will explore how to incorporate non-linear functions into models effectively.
-
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
 
 = Feature Scaling
 
@@ -953,7 +904,7 @@ Where:
 
 ==== Implementation
 #codeBlock(
-```python
+  ```python
   import numpy as np
 
   def min_max_scaling(feature, feature_range):
@@ -971,15 +922,11 @@ Where:
 
   print(f"Scaled x1: {x1_scaled}")
   print(f"Scaled x2: {x2_scaled}")
+  ```
 )
-
 
 === Key Takeaway
 Feature scaling significantly improves the efficiency of gradient descent, especially when feature ranges differ greatly. Use either min-max scaling or standardization to normalize features before applying machine learning algorithms.
-
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
 
 = Gradient Descent for Multiple Linear Regression
 
@@ -1042,18 +989,18 @@ The partial derivatives for the parameters are computed as:
 Using vectorized computation, we can compute updates efficiently:
 
 #codeBlock(
-```python
-import numpy as np
+  ```python
+    import numpy as np
 
-def gradient_descent(X, y, w, b, alpha, num_iters):
-    m = len(y)
-    for i in range(num_iters):
-        predictions = np.dot(X, w) + b
-        errors = predictions - y
-        grad_w = (1/m) * np.dot(X.T, errors)
-        grad_b = (1/m) * np.sum(errors)
-        w -= alpha * grad_w
-        b -= alpha * grad_b
+    def gradient_descent(X, y, w, b, alpha, num_iters):
+      m = len(y)
+      for i in range(num_iters):
+      predictions = np.dot(X, w) + b
+      errors = predictions - y
+      grad_w = (1/m) * np.dot(X.T, errors)
+      grad_b = (1/m) * np.sum(errors)
+      w -= alpha * grad_w
+      b -= alpha * grad_b
     return w, b
     ```
 )
@@ -1063,7 +1010,7 @@ def gradient_descent(X, y, w, b, alpha, num_iters):
 For a dataset with features $X \in bb{R}^{m times n}$ and target values $y \in bb{R}^m$, initialize $w$ and $b$:
 
 #codeBlock(
-```python
+  ```python
 # Example data
 X = np.array([[1, 2], [2, 3], [3, 4]])
 y = np.array([4, 6, 8])
@@ -1075,7 +1022,7 @@ num_iters = 1000
 # Perform gradient descent
 w, b = gradient_descent(X, y, w, b, alpha, num_iters)
 print(f"Weights: {w}, Bias: {b}")
-```
+  ```
 )
 
 === Notes on Convergence
@@ -1098,10 +1045,6 @@ Advantages:
 Disadvantages:
 - Computationally expensive for large feature sets.
 - Not applicable to most machine learning algorithms (e.g., logistic regression, neural networks).
-
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
 
 = Linear Regression with Multiple Features
 
@@ -1185,10 +1128,6 @@ This function remains convex, ensuring a global minimum, making it suitable for 
 
 - *Multiple features* enable a richer model by incorporating more information, improving predictions.
 - *Matrix/vector notation* simplifies representation and calculation, making it efficient to handle large feature sets.
-
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
 
 = Polynomial Regression
 
@@ -1282,10 +1221,6 @@ This code demonstrates how polynomial regression can be implemented in practice 
 - Feature scaling is critical when using higher-order polynomial terms.
 - Tools like Scikit-learn make it easy to implement polynomial regression with just a few lines of code.
 - Experimentation and evaluation are key to selecting the best model and transformations for your data.
-
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
 
 = Multiple Functions in Linear Regression
 
@@ -1385,10 +1320,6 @@ When $ n $ is large, vectorized code is not just shorter but significantly faste
 - Understanding how hardware executes vectorized code adds to its appreciation.
 - Practical takeaways include consistently seeking opportunities to write vectorized code for efficiency and scalability.
 
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
-
 = Abordar el Sobreadaptación
 
 === Sobreadaptación en un modelo
@@ -1463,10 +1394,6 @@ python
   plt.show()
 ```
 )
-
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
 
 = Logistic Regression Notes
 
@@ -1566,10 +1493,6 @@ This iterative process ensures that $w$ and $b$ converge to values that minimize
     Gradient descent converging to the global minimum of the convex cost function.
   ]
 )
-
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
 
 = Logistic Regression and Decision Boundaries
 
@@ -1675,10 +1598,6 @@ The computed probability indicates the likelihood that the tumor is malignant.
 - The decision boundary is where the model predicts equal probabilities for both classes.
 - Logistic regression is a foundational algorithm for classification tasks and is interpretable and effective for many problems.
 
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
-
 = Overfitting Problem
 
 == Notes on Overfitting and Underfitting
@@ -1780,10 +1699,6 @@ To build effective models:
 - Prevent overfitting using regularization or reducing model complexity.
 - Always validate on unseen data to ensure generalization.
 
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
-
 = Cost Function with Regularization
 
 In this video, we discuss the cost function in linear regression and how regularization can help prevent overfitting by reducing the magnitude of parameters.
@@ -1863,10 +1778,6 @@ For practical implementation, $lambda$ is typically tuned based on training data
 - $lambda$ controls the balance between fitting the data and simplifying the model.
 - In practice, choose $lambda$ using cross-validation to achieve the best generalization.
 
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
-
 = Regularized Logistic Regression
 
 == Key Concepts
@@ -1941,10 +1852,6 @@ In this function:
 - `num_iters` is the number of iterations for gradient descent.
 
 This code allows us to fit a regularized logistic regression model to a dataset, minimizing the cost function with respect to the parameters $w$ and $b$.
-
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
 
 = Logistic Regression Notes
 
@@ -2034,10 +1941,6 @@ python
 
 In the next session, we'll explore how gradient descent can be applied to optimize this cost function for logistic regression.
 
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
-
 = Demand Prediction with Neural Networks
 
 == Introduction
@@ -2123,10 +2026,6 @@ Where:
 - **Artificial Neurons:** Simple units processing features to produce predictions.
 - **Neural Networks:** Combine neurons in layers for complex tasks.
 
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
-
 = Forward Propagation in Neural Networks
 
 == Introduction
@@ -2192,10 +2091,6 @@ Where \(a^{(3)}\) represents the predicted probability.
 - **Forward Propagation:** Sequentially computes activations from input to output.
 - **Use Case:** Inferencing using pre-trained models.
 
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
-
 = Deep Learning Handbook: Image Recognition
 
 == Neural Networks for Image Recognition
@@ -2242,10 +2137,6 @@ Neurons in hidden layers learn different features:
 === Transfer Learning Concept
 
 The same network architecture can adapt to different tasks. If trained on car images, it will learn features like car edges, parts, and full car shapes.
-
-#import "../lib/template.typ": main
-#import "../lib/simpleTable.typ": simpleTable
-#import "../lib/codeBlock.typ": codeBlock
 
 = Deep Learning Handbook
 
