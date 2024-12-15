@@ -140,4 +140,3 @@ def main():
     print(f"Precisión del modelo: {accuracy:.2f}")
 
     plot_results(y_test, predictions)
-

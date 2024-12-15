@@ -23,6 +23,7 @@ print("Error Cuadrático Medio (MSE):", mse)
 accuracy = accuracy_score(y, model.predict(X))
 print("Precisión del modelo:", accuracy)
 
+
 # Red Neuronal Simple con PyTorch
 # Definición de la red neuronal
 class SimpleNN(nn.Module):
@@ -32,6 +33,7 @@ class SimpleNN(nn.Module):
 
     def forward(self, x):
         return self.linear(x)
+
 
 # Preparación de datos
 X = np.array([-1.0, 0.0, 1.0, 2.0, 3.0, 4.0], dtype=float).reshape(-1, 1)
