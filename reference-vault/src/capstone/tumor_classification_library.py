@@ -73,7 +73,7 @@ def plot_results(y_test, predictions):
     plt.xlabel("Índice de Muestra Ordenada")
     plt.ylabel("Etiqueta")
     plt.legend()
-    plt.savefig("plot/tumor_classification_results_library.png")
+    plt.savefig("../capstone/plot/tumor_classification_results_library.png")
     print(
         "Resultados graficados y guardados como 'tumor_classification_results_library.png'."
     )
@@ -88,14 +88,11 @@ def evaluate_model(model, X_test, y_test):
     return accuracy
 
 
-def main(file_path):
+def main():
+    file_path = "../capstone/data/breast_cancer.csv"
     data = load_and_clean_data(file_path)
     X_train, X_test, y_train, y_test = preprocess_data(data)
     X_train_scaled, X_test_scaled = standardize_data(X_train, X_test)
     model = train_logistic_regression(X_train_scaled, y_train)
     accuracy = evaluate_model(model, X_test_scaled, y_test)
     print(f"Precisión del modelo: {accuracy:.2f}")
-
-file_path = "data/breast_cancer.csv"
-
-main(file_path)

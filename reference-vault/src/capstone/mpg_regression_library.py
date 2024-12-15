@@ -61,7 +61,7 @@ def evaluate_model(y_true, y_pred):
 
 
 def plot_predictions(
-    y_test, predictions, output_file="plot/predictions_vs_actual_library.png"
+    y_test, predictions, output_file="../capstone/plot/predictions_vs_actual_library.png"
 ):
     plt.figure(figsize=(8, 6))
     plt.scatter(y_test, predictions, alpha=0.6, color="blue", label="Predicciones")
@@ -81,7 +81,8 @@ def plot_predictions(
     print(f"Gráfico guardado como {output_file}")
 
 
-def main(file_path):
+def main():
+    file_path = "../capstone/data/auto_mpg.csv"
     print("Iniciando flujo del modelo...")
 
     X, y = load_and_prepare_data(file_path)
@@ -96,8 +97,3 @@ def main(file_path):
     plot_predictions(y_test, predictions)
 
     print("\nProceso completado.")
-
-
-file_path = "data/auto_mpg.csv"
-
-main(file_path)
