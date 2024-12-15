@@ -614,14 +614,6 @@ Para implementar el descenso de gradiente, necesitamos calcular las derivadas pa
 
 Al continuar este proceso, podemos acercarnos al valor de \( w \) y \( b \) que minimiza la función de coste.
 
-== Fórmulas
-
-- $ w := w - \u{03B1} \cdot math.frac(∂J(w, b), ∂w) $
-- $ b := b - \u{03B1} \cdot math.frac(∂J(w, b), ∂b) $
-
-
-Donde \( \u{03B1} \) es la tasa de aprendizaje, controlando el tamaño del paso en cada iteración.
-
 == Resumen
 
 El descenso de gradiente es una herramienta esencial en machine learning para encontrar mínimos de funciones de coste, optimizando modelos de regresión y redes neuronales, entre otros. Al ajustar los parámetros en la dirección del gradiente negativo, podemos minimizar el coste y mejorar el rendimiento del modelo.
