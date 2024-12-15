@@ -3,13 +3,15 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
+
 class SimpleNN(nn.Module):
     def __init__(self):
         super(SimpleNN, self).__init__()
-        self.linear = nn.Linear(1, 1) 
+        self.linear = nn.Linear(1, 1)
 
     def forward(self, x):
         return self.linear(x)
+
 
 X = np.array([-1.0, 0.0, 1.0, 2.0, 3.0, 4.0], dtype=float).reshape(-1, 1)
 y = np.array([-3.0, -1.0, 1.0, 3.0, 5.0, 7.0], dtype=float).reshape(-1, 1)

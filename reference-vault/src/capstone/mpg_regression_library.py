@@ -61,7 +61,9 @@ def evaluate_model(y_true, y_pred):
 
 
 def plot_predictions(
-    y_test, predictions, output_file="../capstone/plot/predictions_vs_actual_library.png"
+    y_test,
+    predictions,
+    output_file="../capstone/plot/predictions_vs_actual_library.png",
 ):
     plt.figure(figsize=(8, 6))
     plt.scatter(y_test, predictions, alpha=0.6, color="blue", label="Predicciones")
