@@ -171,8 +171,8 @@ Desempaquetando los Componentes
 Tasa de Aprendizaje \(\alpha\)
 
 La tasa de aprendizaje \(\alpha\) controla el tamaño de los pasos hacia abajo en la función de costo:
-- **Valores grandes** de \(\alpha\) provocan pasos grandes, lo que puede acelerar la convergencia, pero también aumentar el riesgo de sobrepasar el mínimo.
-- **Valores pequeños** permiten pasos más controlados pero más lentos.
+- *Valores grandes* de \(\alpha\) provocan pasos grandes, lo que puede acelerar la convergencia, pero también aumentar el riesgo de sobrepasar el mínimo.
+- *Valores pequeños* permiten pasos más controlados pero más lentos.
 
 La elección de \(\alpha\) es crucial para el buen rendimiento del algoritmo.
 
@@ -182,7 +182,7 @@ El término \(\frac{\partial J(w, b)}{\partial w}\) indica la dirección de ajus
 
 Actualización Simultánea de Parámetros
 
-El algoritmo de descenso de gradiente requiere que los parámetros \(w\) y \(b\) se actualicen **simultáneamente**. La implementación correcta del descenso de gradiente se realiza de esta forma:
+El algoritmo de descenso de gradiente requiere que los parámetros \(w\) y \(b\) se actualicen *simultáneamente*. La implementación correcta del descenso de gradiente se realiza de esta forma:
 
 1. Calculamos las expresiones para los nuevos valores de \(w\) y \(b\), almacenándolos temporalmente.
 2. Actualizamos ambos parámetros al mismo tiempo utilizando los valores temporales.
@@ -191,7 +191,7 @@ En este caso, el valor de \(w\) utilizado para actualizar \(b\) es diferente al 
 
 Convergencia del Algoritmo
 
-El proceso de actualización se repite hasta que los cambios en \(w\) y \(b\) son mínimos. En este punto, el algoritmo ha alcanzado un **mínimo local** de la función de costo.
+El proceso de actualización se repite hasta que los cambios en \(w\) y \(b\) son mínimos. En este punto, el algoritmo ha alcanzado un *mínimo local* de la función de costo.
 
 Resumen
 
@@ -417,22 +417,22 @@ El objetivo del descenso de gradiente es minimizar la función de coste actualiz
 
 Usando estas derivadas, el algoritmo actualiza los valores de w y b en cada paso para minimizar J.
 
-- **Convergencia**: Repetimos las actualizaciones hasta que el cambio en J sea mínimo o hasta alcanzar un número máximo de iteraciones.
+- *Convergencia*: Repetimos las actualizaciones hasta que el cambio en J sea mínimo o hasta alcanzar un número máximo de iteraciones.
 
 Propiedades
-1. **Convexidad**: La función de coste por error cuadrático es convexa, lo cual significa que tiene un único mínimo global.
-2. **Convergencia**: Si α es adecuada, el algoritmo siempre convergerá al mínimo global.
+1. *Convexidad*: La función de coste por error cuadrático es convexa, lo cual significa que tiene un único mínimo global.
+2. *Convergencia*: Si α es adecuada, el algoritmo siempre convergerá al mínimo global.
 
 Para observar el gradiente descendente en acción:
-- **Gráfica del modelo**: La línea recta de predicción se ajusta progresivamente a los datos.
-- **Función de coste**: Visualizamos el descenso en J a medida que se reduce el error.
+- *Gráfica del modelo*: La línea recta de predicción se ajusta progresivamente a los datos.
+- *Función de coste*: Visualizamos el descenso en J a medida que se reduce el error.
 
-Este proceso es conocido como **descenso de gradiente por lotes**, ya que usa todo el conjunto de entrenamiento en cada paso. Existen variaciones como el **descenso de gradiente estocástico** y **mini-lote**, que operan en subconjuntos del conjunto de datos en cada actualización.
+Este proceso es conocido como *descenso de gradiente por lotes*, ya que usa todo el conjunto de entrenamiento en cada paso. Existen variaciones como el *descenso de gradiente estocástico* y *mini-lote*, que operan en subconjuntos del conjunto de datos en cada actualización.
 
 = Resumen
-- **Función de coste**: Cuantifica el error.
-- **Gradiente Descendente**: Algoritmo de optimización para minimizar la función de coste.
-- **Aplicación Práctica**: Predicción de valores como precios de viviendas.
+- *Función de coste*: Cuantifica el error.
+- *Gradiente Descendente*: Algoritmo de optimización para minimizar la función de coste.
+- *Aplicación Práctica*: Predicción de valores como precios de viviendas.
 
 == Handbook: Machine Learning - Elección del Learning Rate y Funcionamiento del Gradient Descent
 
@@ -1099,8 +1099,8 @@ Polynomial regression extends linear regression by allowing the model to fit non
 
 Suppose we have a dataset of housing prices where the feature $x$ represents the size of the house in square feet. A straight line might not capture the pattern well, as housing prices often increase non-linearly with size. Instead, we can try fitting a polynomial function like:
 
-1. **Quadratic**: $f(x) = w_1 x + w_2 x^2 + b$
-2. **Cubic**: $f(x) = w_1 x + w_2 x^2 + w_3 x^3 + b$
+1. *Quadratic*: $f(x) = w_1 x + w_2 x^2 + b$
+2. *Cubic*: $f(x) = w_1 x + w_2 x^2 + w_3 x^3 + b$
 
 Each additional term allows the model to capture more complexity in the data.
 
@@ -1212,7 +1212,7 @@ In Python, a straightforward implementation uses a loop:
 ```python
   f = 0
   for j in range(n):  = Loop from 0 to n-1
-      f += w[j] ** x[j]
+      f += w[j] * x[j]
   f += b
   ```
 )
@@ -1335,14 +1335,14 @@ python
 
   # Función de ejemplo: y = x^2 + 2x + 1
   def polynomial(x):
-      return x**2 + 2*x + 1
+      return x*2 + 2*x + 1
 
   x = np.linspace(-10, 10, 100)
   y = polynomial(x)
 
   # Aplicar regularización (en este caso, hacer los parámetros más pequeños)
   def regularized_model(x, w1, w2, b):
-      return w1 * x**2 + w2 * x + b
+      return w1 * x*2 + w2 * x + b
 
   w1, w2, b = 1, 2, 1
   regularized_y = regularized_model(x, w1, w2, b)
@@ -1519,8 +1519,8 @@ The decision boundary is a threshold where the model predicts a 50% probability 
 
 === Advantages of Logistic Regression
 
-- **Probabilistic Output**: Unlike hard classifications, logistic regression provides probabilities, allowing better interpretation.
-- **Simplicity**: Easy to implement and computationally efficient for binary classification problems.
+- *Probabilistic Output*: Unlike hard classifications, logistic regression provides probabilities, allowing better interpretation.
+- *Simplicity*: Easy to implement and computationally efficient for binary classification problems.
 
 === Implementation in Python
 
@@ -1706,7 +1706,7 @@ python
   def plot_regularized_cost(lambda_value: float):
       # Plot cost function with regularization effect
       w_range = np.linspace(-5, 5, 100)
-      cost_values = (w_range**2) + lambda_value * np.sum(w_range**2)  # Simplified cost function for demonstration
+      cost_values = (w_range*2) + lambda_value * np.sum(w_range*2)  # Simplified cost function for demonstration
       plt.plot(w_range, cost_values, label=f"λ = {lambda_value}")
       plt.xlabel("w")
       plt.ylabel("Cost Function J(w)")
@@ -1858,8 +1858,8 @@ $ J(w, b) = - frac{1}{m} sum{i=1}^{m} lr( y^{(i)} \cdot log(f(x^{(i)})) + (1 - y
 
 === Properties of the Cost Function
 
-- **Convexity**: This cost function is convex, meaning it has a single global minimum. This is crucial for gradient descent, ensuring it converges to the optimal solution.
-- **Statistical Justification**: The function is derived using the principle of maximum likelihood estimation, which helps identify the most likely parameters for the logistic model.
+- *Convexity*: This cost function is convex, meaning it has a single global minimum. This is crucial for gradient descent, ensuring it converges to the optimal solution.
+- *Statistical Justification*: The function is derived using the principle of maximum likelihood estimation, which helps identify the most likely parameters for the logistic model.
 
 == Example: Visualizing Cost for Two Parameter Choices
 
@@ -1896,7 +1896,7 @@ python
 
 === Notes
 
-- The **blue decision boundary** with optimized parameters resulted in a lower cost compared to the **magenta decision boundary**, showing better model performance.
+- The *blue decision boundary* with optimized parameters resulted in a lower cost compared to the *magenta decision boundary*, showing better model performance.
 - Implementing this cost function in code will be essential for practical gradient descent applications.
 
 In the next session, we'll explore how gradient descent can be applied to optimize this cost function for logistic regression.
@@ -1937,7 +1937,7 @@ Where:
 
 An artificial neuron functions like a simple computer. It receives input features, processes them through an activation function, and outputs a prediction.
 
-**Example:** Predicting whether a T-shirt becomes a top seller:
+*Example:* Predicting whether a T-shirt becomes a top seller:
 - Input: Price ($x$)
 - Output: Probability of being a top seller ($a$)
 
@@ -1956,12 +1956,12 @@ Neural networks combine multiple artificial neurons to make complex predictions.
   [*Material Quality*], [Perceived fabric quality],
 )
 
-**Hidden Layer Neurons:**
-1. **Affordability Neuron:** Inputs - Price, Shipping Cost
-2. **Awareness Neuron:** Input - Marketing Spend
-3. **Quality Perception Neuron:** Inputs - Price, Material Quality
+*Hidden Layer Neurons:*
+1. *Affordability Neuron:* Inputs - Price, Shipping Cost
+2. *Awareness Neuron:* Input - Marketing Spend
+3. *Quality Perception Neuron:* Inputs - Price, Material Quality
 
-The outputs of these neurons feed into a **Final Neuron**, predicting the overall likelihood of the T-shirt being a top seller.
+The outputs of these neurons feed into a *Final Neuron*, predicting the overall likelihood of the T-shirt being a top seller.
 
 ---
 
@@ -1982,9 +1982,9 @@ Where:
 
 == Summary
 
-- **Logistic Regression:** Models probability using a sigmoid function.
-- **Artificial Neurons:** Simple units processing features to produce predictions.
-- **Neural Networks:** Combine neurons in layers for complex tasks.
+- *Logistic Regression:* Models probability using a sigmoid function.
+- *Artificial Neurons:* Simple units processing features to produce predictions.
+- *Neural Networks:* Combine neurons in layers for complex tasks.
 
 = Forward Propagation in Neural Networks
 
@@ -1996,9 +1996,9 @@ Forward propagation is the process of passing input data through a neural networ
 
 Consider a binary classification problem distinguishing handwritten digits "0" and "1." We use a neural network with:
 
-- **Input Layer:** An 8x8 grid (64 features).
-- **Hidden Layers:** Two layers with 25 and 15 neurons, respectively.
-- **Output Layer:** A single neuron indicating the probability of the digit being "1."
+- *Input Layer:* An 8x8 grid (64 features).
+- *Hidden Layers:* Two layers with 25 and 15 neurons, respectively.
+- *Output Layer:* A single neuron indicating the probability of the digit being "1."
 
 === Step 1: From Input to First Hidden Layer
 
@@ -2048,8 +2048,8 @@ Where \(a^{(3)}\) represents the predicted probability.
 
 === Summary
 
-- **Forward Propagation:** Sequentially computes activations from input to output.
-- **Use Case:** Inferencing using pre-trained models.
+- *Forward Propagation:* Sequentially computes activations from input to output.
+- *Use Case:* Inferencing using pre-trained models.
 
 = Deep Learning Handbook: Image Recognition
 
@@ -2072,18 +2072,18 @@ In computer vision, neural networks are used for tasks like facial recognition. 
 
 A neural network processes the image through multiple layers:
 
-1. **Input Layer:** The flattened image vector.
-2. **Hidden Layers:** Extract features through learned filters.
-3. **Output Layer:** Estimates probabilities of specific identities.
+1. *Input Layer:* The flattened image vector.
+2. *Hidden Layers:* Extract features through learned filters.
+3. *Output Layer:* Estimates probabilities of specific identities.
 
 
 === Feature Detection in Hidden Layers
 
 Neurons in hidden layers learn different features:
 
-1. **First Hidden Layer:** Detects edges and simple patterns.
-2. **Second Hidden Layer:** Combines edges into facial parts.
-3. **Third Hidden Layer:** Detects complete facial structures.
+1. *First Hidden Layer:* Detects edges and simple patterns.
+2. *Second Hidden Layer:* Combines edges into facial parts.
+3. *Third Hidden Layer:* Detects complete facial structures.
 
 #simpleTable(
   columns: (1fr, 1fr),
