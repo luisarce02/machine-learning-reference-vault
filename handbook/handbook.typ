@@ -231,7 +231,7 @@ La Función de Costo en la Regresión Lineal
 Una parte fundamental de la implementación de la regresión lineal es definir la función de costo, la cual permite evaluar la calidad del modelo. En este tema, explicaremos qué es la función de costo y cómo se utiliza para mejorar el modelo.
 
 1. Introducción
-Para entrenar un modelo de regresión lineal, trabajamos con un conjunto de datos de entrenamiento que contiene pares de entrada `(x)` y salida `(y)`. El modelo utilizado para ajustar estos datos es la función lineal \( f_{w, b}(x) = w \cdot x + b \), donde:
+Para entrenar un modelo de regresión lineal, trabajamos con un conjunto de datos de entrenamiento que contiene pares de entrada `(x)` y salida `(y)`. El modelo utilizado para ajustar estos datos es la función lineal $f_{w, b}(x) = w \cdot x + b$, donde:
 
 - *w* y *b* son los parámetros del modelo.
 - *w* es conocido como el peso o pendiente.
