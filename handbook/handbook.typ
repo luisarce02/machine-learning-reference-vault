@@ -241,11 +241,6 @@ Esta línea cruza el eje y en *y = 1* y tiene una pendiente de *0.5*. Cambiar *b
 3. Definición de la Función de Costo
 La función de costo mide qué tan cerca están las predicciones del modelo de los valores reales del conjunto de entrenamiento. La función de costo \( J(w, b) \) se define para evaluar la diferencia entre la predicción del modelo \( \hat{y} \) y el objetivo real \( y \).
 
-Para una entrada dada \( x^{(i)} \), la predicción del modelo es:
-\[
-$$\hat{y}^{(i)} = f_{w, b}(x^{(i)}) = w \cdot x^{(i)} + b$$
-\]
-
 La función de costo, conocida como *error cuadrático medio (MSE)*, se define como:
 \[
 J(w, b) = \frac{1}{2m} \sum_{i=1}^{m} \left( f_{w, b}(x^{(i)}) - y^{(i)} \right)^2
@@ -259,11 +254,6 @@ La función de costo nos ayuda a encontrar los valores de *w* y *b* que minimiza
 
 Cuando *J(w, b)* es pequeño, significa que la línea generada por \( f(x) \) se ajusta bien a los puntos de datos. Si *J(w, b)* es grande, indica que el modelo necesita ajustes en *w* y *b* para mejorar el ajuste.
 
-5. Ejemplo Visual con Función Simplificada
-
-Caso Simplificado
-Consideremos un modelo simplificado donde \( f_{w}(x) = w \cdot x \) (es decir, *b = 0*).
-
 Para un conjunto de entrenamiento con puntos en las posiciones *(1,1), (2,2), (3,3)*, se puede observar cómo varía el error cuadrático medio al cambiar el valor de *w*:
 
 1. Para \( w = 1 \):
@@ -275,10 +265,7 @@ Para un conjunto de entrenamiento con puntos en las posiciones *(1,1), (2,2), (3
 Al visualizar *J(w)* en función de *w*, se observa que el valor mínimo de *J* ocurre cuando \( w = 1 \).
 
 6. Minimización de la Función de Costo
-El objetivo en regresión lineal es encontrar los valores de *w* y *b* que minimicen \( J(w, b) \), es decir, que minimicen el error entre las predicciones y los valores reales. Matemáticamente, esto se expresa como:
-\[
-$$\min_{w, b} J(w, b)$$
-\]
+El objetivo en regresión lineal es encontrar los valores de *w* y *b* que minimicen \( J(w, b) \), es decir, que minimicen el error entre las predicciones y los valores reales. Matemáticamente.
 
 Para encontrar los mejores parámetros, se utilizan algoritmos de optimización, como el descenso de gradiente, que permite ajustar iterativamente *w* y *b* hasta que \( J(w, b) \) alcance un valor mínimo.
 
@@ -350,8 +337,6 @@ Handbook de Machine Learning: Función de Costo en Regresión Lineal
 La *función de costo* en machine learning es una métrica que indica qué tan bien un modelo predice el valor de salida deseado. En el caso de *regresión lineal*, el objetivo es encontrar los parámetros óptimos de la función lineal para minimizar la diferencia entre las predicciones y los valores reales en el conjunto de entrenamiento.
 
 - Dada la función lineal:
-  $$f_{w, b}(x) = w \cdot x + b$$
-  Donde:
   - $w$ y $b$ son los *parámetros* o *coeficientes* del modelo que se ajustan durante el entrenamiento.
   - $x$ representa las *características de entrada*.
   - $f_{w, b}(x)$ es la *predicción* de la salida.
@@ -426,48 +411,23 @@ Para comprender la función de costo más a fondo, revisar cómo cambiar $w$ y $
 
 = Handbook: Machine Learning - Gradiente Descendente para Regresión Lineal
 
-# Introducción
-En este capítulo, exploraremos el proceso de entrenamiento de un modelo de regresión lineal usando la **función de coste por error cuadrático** y el **gradiente descendente**. Revisaremos las ecuaciones clave, el proceso de cálculo de las derivadas, y el funcionamiento del algoritmo de descenso en gradiente.
-
-# Modelo de Regresión Lineal
 La regresión lineal es un modelo de predicción que intenta ajustar una línea recta a los datos para predecir valores. Para ajustar el modelo a los datos, usaremos el gradiente descendente para minimizar el error.
 
-- **Función de coste (J)**: Mide el error promedio entre las predicciones del modelo y los valores reales. Se define como:
-  J(w, b) = (1 / 2m) * Σ(i=1 to m) (yᵢ - (wxᵢ + b))²
-
-- **Modelo de predicción (f)**: La predicción para cada dato es:
-  f(xᵢ) = wxᵢ + b
-
-# Algoritmo de Descenso de Gradiente
 El objetivo del descenso de gradiente es minimizar la función de coste actualizando los parámetros w y b en cada iteración, calculando las derivadas parciales de J con respecto a estos parámetros.
-
-1. **Derivada de J con respecto a w**:
-   ∂J/∂w = (1/m) * Σ(i=1 to m) ((wxᵢ + b) - yᵢ) * xᵢ
-
-2. **Derivada de J con respecto a b**:
-   ∂J/∂b = (1/m) * Σ(i=1 to m) ((wxᵢ + b) - yᵢ)
 
 Usando estas derivadas, el algoritmo actualiza los valores de w y b en cada paso para minimizar J.
 
 - **Convergencia**: Repetimos las actualizaciones hasta que el cambio en J sea mínimo o hasta alcanzar un número máximo de iteraciones.
 
-# Propiedades del Gradiente Descendente en Regresión Lineal
+Propiedades
 1. **Convexidad**: La función de coste por error cuadrático es convexa, lo cual significa que tiene un único mínimo global.
 2. **Convergencia**: Si α es adecuada, el algoritmo siempre convergerá al mínimo global.
 
-# Visualización del Proceso de Gradiente Descendente
 Para observar el gradiente descendente en acción:
 - **Gráfica del modelo**: La línea recta de predicción se ajusta progresivamente a los datos.
 - **Función de coste**: Visualizamos el descenso en J a medida que se reduce el error.
 
-# Tipos de Gradiente Descendente
 Este proceso es conocido como **descenso de gradiente por lotes**, ya que usa todo el conjunto de entrenamiento en cada paso. Existen variaciones como el **descenso de gradiente estocástico** y **mini-lote**, que operan en subconjuntos del conjunto de datos en cada actualización.
-
-# Conclusión
-¡Felicidades! Has completado la implementación del descenso de gradiente para regresión lineal. Ahora tienes los conocimientos básicos para construir un modelo de regresión que puede ser aplicado en predicciones de precios de viviendas, entre otras aplicaciones.
-
-= Ejercicio Opcional
-Repasa el algoritmo de descenso de gradiente y experimenta con diferentes tasas de aprendizaje en el código proporcionado. Observa cómo la función de coste disminuye y cómo la línea de ajuste mejora en cada iteración.
 
 = Resumen
 - **Función de coste**: Cuantifica el error.
