@@ -65,7 +65,7 @@ def predict(X, theta):
 
 
 # Cost evolution
-def plot_cost_history(cost_history, output_file="plot/mpg_cost_history_manual.png"):
+def plot_cost_history(cost_history, output_file="../capstone/plot/mpg_cost_history_manual.png"):
     print("\nGenerando gráfico de la evolución del costo...")
     plt.figure(figsize=(8, 6))
     plt.plot(range(len(cost_history)), cost_history, label="Costo")
@@ -79,7 +79,7 @@ def plot_cost_history(cost_history, output_file="plot/mpg_cost_history_manual.pn
 
 
 def plot_predictions_vs_actual(
-    y_actual, y_predicted, output_file="plot/mpg_predictions_vs_actual_manual.png"
+    y_actual, y_predicted, output_file="../capstone/plot/mpg_predictions_vs_actual_manual.png"
 ):
     print("\nGenerando gráfico de predicciones vs valores reales...")
     plt.figure(figsize=(8, 6))
@@ -133,6 +133,7 @@ def train_and_evaluate_manual(file_path, learning_rate=0.01, iterations=1000):
     return theta, cost_history, predictions, mean, std
 
 
-file_path = "data/auto_mpg.csv"
-
-theta, cost_history, predictions, mean, std = train_and_evaluate_manual(file_path)
+def main():
+    file_path = "../capstone/data/auto_mpg.csv"
+    theta, cost_history, predictions, mean, std = train_and_evaluate_manual(file_path)
+    return theta, cost_history, predictions, mean, std

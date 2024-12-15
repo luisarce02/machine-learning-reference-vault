@@ -1,12 +1,21 @@
 from capstone.mpg_regression_library import main as mpglib
+from capstone.mpg_regression_manual import main as mpgmanual
 from capstone.tumor_classification_library import main as tumlib
+from capstone.tumor_classification_manual import main as tummanual
+from capstone.handwrite import main as handwrite
 
 
 def main() -> None:
-    file_path = "data/auto_mpg.csv"
-    mpglib(file_path)
-    file_path2 = "data/breast_cancer.csv"
-    tumlib(file_path2)
+    print("======== regresion lineal libreria MPG example ========")
+    mpglib()
+    print("======== regresion lineal manual MPG example ========")
+    mpgmanual()
+    print("======== regresion logistica libreria Tumor example ========")
+    tumlib()
+    print("======== regresion logistica manual Tumor example ========")
+    tummanual()
+    print("======== redes neuronales pytorch handwrite example ========")
+    handwrite()
 
 
 if __name__ == "__main__":

@@ -49,7 +49,7 @@ def plot_cost_convergence(cost_history, iterations):
     plt.title("Convergencia del Costo")
     plt.xlabel("Iteraciones")
     plt.ylabel("Costo")
-    plt.savefig("plot/tumor_cost_convergence_manual.png")
+    plt.savefig("../capstone/plot/tumor_cost_convergence_manual.png")
     print(
         "Gráfico de convergencia del costo guardado como 'tumor_cost_convergence_manual.png'."
     )
@@ -84,7 +84,7 @@ def plot_results(y_test, predictions):
     plt.xlabel("Índice de Muestra Ordenada")
     plt.ylabel("Etiqueta")
     plt.legend()
-    plt.savefig("plot/tumor_classification_results_manual.png")
+    plt.savefig("../capstone/plot/tumor_classification_results_manual.png")
     print("Resultados guardados como 'tumor_classification_results_manual.png'.")
 
 
@@ -116,7 +116,8 @@ def split_data(features, target, train_ratio=0.7):
     return X_train, X_test, y_train, y_test
 
 
-def pipeline(file_path):
+def main():
+    file_path = "../capstone/data/breast_cancer.csv"
     features, target = load_and_prepare_data(file_path)
 
     X_train, X_test, y_train, y_test = split_data(features, target)
@@ -140,5 +141,3 @@ def pipeline(file_path):
 
     plot_results(y_test, predictions)
 
-
-pipeline("data/breast_cancer.csv")
